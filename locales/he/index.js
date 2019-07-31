@@ -3,10 +3,10 @@ import indexPageHead from './index-page-head'
 
 export default {
   changeLanguagePost: 'Post available in English',
-  soonLanguagePost: 'Post available in English soon',
-  comeBack: 'Volver atrás',
+  soonLanguagePost: 'Post available in English. soon.',
+  comeBack: 'חזרה',
   indexPageHead: indexPageHead,
-  posts: 'Posts',
-  home: 'Home',
+  posts: 'פוסטים',
+  home: 'בית',
   footer: footer
 }

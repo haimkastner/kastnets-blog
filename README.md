@@ -96,3 +96,6 @@
 ## 💫 Deploy
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/marinaaisa/nuxt-markdown-blog-starter)
+
+## Credits
+Icon from [icons8](https://icons8.com/).

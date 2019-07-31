@@ -9,16 +9,16 @@ const I18N = {
       file: 'en/index.js'
     },
     {
-      code: 'es',
-      iso: 'es-ES',
-      name: 'Español',
-      file: 'es/index.js'
+      code: 'he',
+      iso: 'he-IL',
+      name: 'עברית',
+      file: 'he/index.js'
     }
   ],
   lazy: true,
   seo: false,
   langDir: '/locales/',
-  defaultLocale: 'en',
+  defaultLocale: 'he',
   parsePages: false
 }
 

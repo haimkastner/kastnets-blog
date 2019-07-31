@@ -98,9 +98,10 @@
         title: this.pageTitle,
         htmlAttrs: {
           lang: this.$i18n.locale,
+          dir: this.$i18n.locale === 'en' ? 'ltr' : 'rtl',
         },
         meta: [
-          { name: "author", content: "Marina Aisa" },
+          { name: "author", content: "Haim Kastner" },
           { name: "description", property: "og:description", content: this.description, hid: "description" },
           { property: "og:title", content: this.pageTitle },
           { property: "og:image", content: this.ogImage },
@@ -122,7 +123,7 @@
         return `${process.env.baseUrl}/images/blog/${this.id}/_thumbnail.jpg`;
       },
       pageTitle () {
-        return this.title + ' – Marina Aisa';
+        return this.title + ' – Haim Kastner';
       },
       showLocales () {
         return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
@@ -134,7 +135,7 @@
         return {
           hid: 'alternate-hreflang-' + this.showLocales[0].iso,
           rel: 'alternate',
-          href: `${process.env.baseUrl + (this.showLocales[0].code === 'en' ? '' : '/es')}/blog/${this.trans}`,
+          href: `${process.env.baseUrl + (this.showLocales[0].code === 'en' ? '' : '/he')}/blog/${this.trans}`,
           hreflang: this.showLocales[0].code
         }
       },
@@ -206,7 +207,7 @@
 
   &__title {
     font-size: 3rem;
-    font-family: 'Tiempos Headline', Arial, sans-serif;
+    font-family: 'VarelaRound', Arial, sans-serif;
     color: $secondary;
 
     @media (min-width: $screen-sm){
@@ -259,6 +260,7 @@
   }
 
   pre {
+    direction: ltr;
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
     padding: 2.4rem;
     border-radius: 4px;

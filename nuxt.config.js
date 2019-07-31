@@ -2,13 +2,13 @@ const builtAt = new Date().toISOString()
 const path = require('path')
 const { I18N } = require('./locales/i18n-nuxt-config')
 import blogsEn from './contents/en/blogsEn.js'
-import blogsEs from './contents/es/blogsEs.js'
+import blogsHe from './contents/he/blogsHe.js'
 
 const productionUrl = {
   en: "/en",
-  es: "/es"
+  he: "/he"
 };
-const baseUrl = 'https://marinaaisa.com';
+const baseUrl = 'https://blog.kastnet.online';
 
 module.exports = {
   env: {
@@ -16,7 +16,7 @@ module.exports = {
     productionUrl
   },
   head: {
-    title: 'Marina Aisa | Product Designer & Front-end Developer',
+    title: 'Haim Kastner | Thoughts on coding and development',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' },
@@ -25,7 +25,7 @@ module.exports = {
       { name: 'theme-color', content: '#c1c1c1' },
       { name: 'robots', content: 'index, follow' },
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:site', content: '@marinaaisa' },
+      { name: 'twitter:site', content: '@hkastnet' },
       { property: 'og:type', content: 'profile' },
       { property: 'og:updated_time', content: builtAt }
     ],
@@ -120,9 +120,9 @@ module.exports = {
 
   generate: {
     routes: [
-      '/es', '404'
+      '/he', '404'
     ]
     .concat(blogsEn.map(w => `/blog/${w}`))
-    .concat(blogsEs.map(w => `es/blog/${w}`))
+    .concat(blogsHe.map(w => `he/blog/${w}`))
   }
 }

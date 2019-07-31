@@ -54,7 +54,7 @@
     }
 
     &__title {
-      font-family: 'Tiempos Headline', Arial, sans-serif;
+      font-family: 'VarelaRound', Arial, sans-serif;
       color: $secondary;
       padding-top: 1rem;
       font-size: 2.5rem;

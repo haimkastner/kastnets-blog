@@ -10,13 +10,13 @@
   import BlogSection from "~/components/Sections/BlogSection"
 
   import blogsEn from '~/contents/en/blogsEn.js'
-  import blogsEs from '~/contents/es/blogsEs.js'
+  import blogsHe from '~/contents/he/blogsHe.js'
 
   export default {
     async asyncData ({app}) {
 
-      const blogs = app.i18n.locale === 'en' ? blogsEn : blogsEs
-      
+      const blogs = app.i18n.locale === 'en' ? blogsEn : blogsHe
+
       async function asyncImport (blogName) {
         const wholeMD = await import(`~/contents/${app.i18n.locale}/blog/${blogName}.md`)
         return wholeMD.attributes
@@ -41,9 +41,10 @@
         title: this.$t('indexPageHead.title'),
         htmlAttrs: {
           lang: this.$i18n.locale,
+          dir: this.$i18n.locale === 'en' ? 'ltr' : 'rtl',
         },
         meta: [
-          { name: "author", content: "Marina Aisa" },
+          { name: "author", content: "Haim Kastner" },
           { name: "description", property: "og:description", content: this.$t('indexPageHead.description'), hid: "description" },
           { property: "og:title", content: this.$t('indexPageHead.title') },
           { property: "og:image", content: this.ogImage },
