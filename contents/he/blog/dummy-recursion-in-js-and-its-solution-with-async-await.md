@@ -3,6 +3,7 @@ name: 'dummy-recursion-in-js-and-its-solution-with-async-await'
 title: רקורסיית דמה ב-JS  ופתרונה עם async+await
 year: 30 ביולי 2019
 color: '#8e7964'
+trans: 'dummy-recursion-in-js-and-its-solution-with-async-await'
 id: 'dummy-recusion'
 description: |
   ביצוע קריאות אסינכרוניות בצורה סינכרונית, למה ואיך.
