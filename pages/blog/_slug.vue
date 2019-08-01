@@ -18,7 +18,7 @@
               v-if="trans"
               v-for="(locale, i) in showLocales"
               :key="i"
-              :to="`${locale.code == 'en' ? '' : '/' + locale.code}/blog/${trans}`"
+              :to="`${locale.code == 'he' ? '' : '/' + locale.code}/blog/${trans}`"
             >
                 {{ $t('changeLanguagePost') }}
             </nuxt-link>
