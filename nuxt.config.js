@@ -8,7 +8,7 @@ const productionUrl = {
   en: "/en",
   he: "/he"
 };
-const baseUrl = 'https://blog.kastnet.club';
+const baseUrl = 'https://blog.castnet.club';
 
 module.exports = {
   env: {
