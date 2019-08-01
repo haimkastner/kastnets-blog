@@ -3,16 +3,16 @@ const I18N = {
   alwaysRedirect: true,
   locales: [
     {
-      code: 'en',
-      iso: 'en-US',
-      name: 'English',
-      file: 'en/index.js'
-    },
-    {
       code: 'he',
       iso: 'he-IL',
       name: 'עברית',
       file: 'he/index.js'
+    },
+    {
+      code: 'en',
+      iso: 'en-US',
+      name: 'English',
+      file: 'en/index.js'
     }
   ],
   lazy: true,

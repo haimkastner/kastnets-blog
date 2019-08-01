@@ -1,7 +1,7 @@
 ---
 name: 'dummy-recursion-in-js-and-its-solution-with-async-await'
 title: dummy recursion in js and its solution with async await
-year: 30 ביולי 2019
+year: 30 July 2019
 color: '#8e7964'
 trans: 'dummy-recursion-in-js-and-its-solution-with-async-await'
 id: 'dummy-recusion'
