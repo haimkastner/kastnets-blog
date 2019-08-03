@@ -9,7 +9,7 @@ description: |
   Invoke async calls, in sync, why and how.
 ---
 
-## Comming soon
+## Coming soon
 
 ----
 
