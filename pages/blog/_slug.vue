@@ -123,7 +123,7 @@
         return `${process.env.baseUrl}/images/blog/${this.id}/_thumbnail.jpg`;
       },
       pageTitle () {
-        return this.title + ' – Haim Kastner';
+        return `${this.title} | ${this.$i18n.locale === 'he' ? 'חיים קסטנר' : 'Haim Kastner'}`;
       },
       showLocales () {
         return this.$i18n.locales.filter(locale => locale.code !== this.$i18n.locale)
