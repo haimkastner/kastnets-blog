@@ -15,7 +15,7 @@
   export default {
     async asyncData ({app}) {
 
-      const blogs = app.i18n.locale === 'en' ? blogsEn : blogsHe
+      const blogs = app.i18n.locale === 'he' ? blogsHe : blogsEn 
 
       async function asyncImport (blogName) {
         const wholeMD = await import(`~/contents/${app.i18n.locale}/blog/${blogName}.md`)
