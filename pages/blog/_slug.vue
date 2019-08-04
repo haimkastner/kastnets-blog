@@ -13,16 +13,16 @@
           </div>
           <div class="elevate-cover__left">
             <span class="blogSelected-year">{{ year }}</span>
-            —
+            
             <nuxt-link
-              v-if="trans"
+              v-if="trans && trans !== 'soon'"
               v-for="(locale, i) in showLocales"
               :key="i"
               :to="`${locale.code == 'he' ? '' : '/' + locale.code}/blog/${trans}`"
             >
-                {{ $t('changeLanguagePost') }}
+              — {{ $t('changeLanguagePost') }}
             </nuxt-link>
-            <span v-else>{{ $t('soonLanguagePost') }}</span>
+            <span v-else-if="trans === 'soon'"> — {{ $t('soonLanguagePost') }}</span>
             <h1 class="elevate-cover__title">
               {{ title }}
             </h1>
