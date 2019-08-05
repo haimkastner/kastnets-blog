@@ -46,6 +46,23 @@ description: |
 #### הרעיון
 ל"הניח" את כדוה"א בתורך ריבוע וירטואלי, וכל מיקום בתוכו יהיה בעזרת צירי X,Y,Z כמו בל מלבן עם גובה, כשראשית מערכת הצירים במרכז כדוה"א.
 
+איור מערכת הצירים על כדור הארץ: 
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/geocentriccoordinatesystem.png"  alt="Geocentric cartesian coordinates system"/>
+
+(קרדיט [mak.com](https://ftp.mak.com/out/classdocs/vrlink5.2.1/hla1516e/vrl_coordinate_conversions.html))
+
+
+#### אז איך זה נראה 
+לדוגמה המיקום:
+
+- X `4393545.25898511`
+- Y `3080024.99015086`
+- Z `3436747.86996515`
+
+מייצג את המיקום של מפרץ חיפה בגובה פני הים, ישראל.
+(המרחקים\ערכים הינם במטרים)
+
 #### יתרונות
 * קל מאוד לחשב מרחקים (מי לא שמע על [פיתגורס](https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A4%D7%98_%D7%A4%D7%99%D7%AA%D7%92%D7%95%D7%A8%D7%A1#%D7%9E%D7%A8%D7%97%D7%A7_%D7%91%D7%9E%D7%A8%D7%97%D7%91_%D7%94%D7%90%D7%95%D7%A7%D7%9C%D7%99%D7%93%D7%99)) ותנועה. (ללא התחשבות בכדוריות פני כדוה"א, כמובן).
 * המיקומים מדויקים. (ללא עיגול לטובה).
@@ -61,12 +78,41 @@ description: |
 ומיקום ב"ציר x" בעזרת קו האורך עליו נמצאת הנקודה (האם קו שמאלי יותר או ימני יותר, בין 180° 180°- כשקו הגובה 0 עובר
  [בקו גריניץ](https://he.wikipedia.org/wiki/%D7%A7%D7%95_%D7%92%D7%A8%D7%99%D7%A0%D7%99%D7%A5%27) בריטניה).
  
-וגובה (Altitude) הוא לפי המרחק מפני הים.
+וגובה `Altitude` הוא לפי המרחק מפני הים.
  
 הערכים הזוויתיים של קווי הרוחב/גובה הם לפי הזווית מנקודת ה-0 ולכן הם בד"כ במעלות או רדיאנים
 בבסיס עשרוני.
 
 אך ניתן ומקובל לתאר את המעלות גם בעזרת DMS (Degrees, Minutes, Seconds) שזה תיאור שברי המעלות בבסיס 60.
+
+איור קווי רוחב\גובה על פני כדור הארץ:
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/fedstats_lat_long.png"  alt="Geographic lat lon coordinates"/>
+
+(מתוך [wikipedia](https://en.wikipedia.org/wiki/Geographic_coordinate_system))
+
+איור חלוקת פני כדור הארץ לזוויות:
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/full_earth_lat_lon.gif"  alt="Full earth lan lon angels"/>
+
+[קרדיט](https://thesocialsciencesblogger.blogspot.com/2013/09/geographic-coordinates-quiz.html)
+
+
+#### אז איך זה נראה 
+לדוגמה המיקום:
+- Latitude `32.8103889`
+- Longitude `35.0108669`
+- Altitude `0`
+
+מייצג את המיקום של מפרץ חיפה בגובה פני הים, ישראל.
+(ערכי הזוית הינם במעלות)
+
+כמובן ניתן לייצוג גם כ-DMS
+<image-responsive class="center" imageURL="blog/earth-coordinates/dms.png"  alt="dms location"/>
+
+ועכשיו כבר די מובן וברור לאן מוביל אותנו הקישור הבא של גוגל מפות:
+
+`https://www.google.co.il/maps/place/32°48'37.4"N+35°00'47.0"E/`
 
 המערכת כמו שלא קשה להבין היא קוטבית.
 
@@ -86,10 +132,25 @@ description: |
 בנוסף, מאחר ורוחב הרצועה שונה בהתאם למרחק מקו המשווה, גם הרצועה מחולקת לגבהים באותיות מ-C עד X (לא חייבים נתון זה, מאחר וניתן להסיק אותו מערך ציר ה-y.
 מאחר והקטבים מתעוותים לחלוטין ישנה מערכת משלימה שנקראת UPS.
 
+איור חלוקת פני כדור הארץ לפלחים:
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/utm-zones-globe.png"  alt="Full earth lan lon angels"/>
+
+[קרדיט](https://gisgeography.com/utm-universal-transverse-mercator-projection/)
+
+
+איור מפת אפריקה ב-UTM:
+
+(ניתן להבחין שישראל נמצאת באיזור `36S/R`)
+<image-responsive class="center" imageURL="blog/earth-coordinates/africa-utm-zones.png"  alt="Full earth lan lon angels"/>
+
+[קרדיט](https://commons.wikimedia.org/wiki/File:LA2-Africa-UTM-zones.png)
+
+
 המערכת מן הסתם קרטזית.
 
 #### יתרונות
-* קל מאוד לחישוב וניתוח (כל עוד נמצאים באותו האיזור)
+* קל מאוד לחישוב וניתוח (כל עוד נמצאים באותו הפלח)
 * קל מאוד להבנה של מרחקים ומחס לבני אדם.
 * מתאים לניהול איזור מצומצם.
 #### חסרונות
@@ -98,28 +159,40 @@ description: |
 
 ### Range vector
 
-#### Distance
+#### Distance (מרחק)
 המרחק בין שני נקודות במרחב.
 
-#### Elevation
+#### Elevation (הגבהה)
 זווית ההגבהה בין שני נקודות במרחב תלת ממדי.
 
-#### Azimuth
+#### Azimuth (אָזִימוּט)
 זוויץ בציר האופקי (בדו ממדי) 
 בין שני נקודות במרחב הדו ממדי 
 
 (בתלת ממדי גם מתייחסים לזווית הדו ממדית)
 
 ### Orientation (נטייה)
+חשוב להדגיש שנתון זה *שונה* מכיוון התנועה והכיוון במרחב
 
-#### heading (yaw)
-סבסוב
+למשל מטוס נוחת כשהנטייה שלו כלפי מעלה והכיוון שלו מן הסתם כלפי מטה.
 
-#### Pitch 
-עילרוד
+#### heading \ yaw (סבסוב)
 
-#### Roll
-גלגול
+<image-responsive class="center" imageURL="blog/earth-coordinates/aileron_yaw.gif"  alt="Airplane yaw animation"/>
+
+[קרדיט](https://commons.wikimedia.org/wiki/File:Aileron_yaw.gif)
+
+#### Pitch (עילרוד)
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/aileron_pitch.gif"  alt="Airplane pitch animation"/>
+
+[קרדיט](https://commons.wikimedia.org/wiki/File:Aileron_pitch.gif)
+
+#### Roll (גלגול)
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/aileron_roll.gif"  alt="Airplane roll animation"/>
+
+[קרדיט](https://commons.wikimedia.org/wiki/File:Aileron_roll.gif)
 
 ### Velocity
 
@@ -138,6 +211,18 @@ description: |
 ידוע בשמו Velocity vector
 מכיל יחידת מריק זמן עבור כל ציר בנפרד.
 
+### סיכום
+חשוב לציין כי התוכן במאמר הוא קצה קצהו של עולם מופלא
+(ומבולגן?) 
+הכולל המון מתמטיקה וידע אנושי שנצבר במשך שנים ולא באמת ניתן ללמוד אותו 
+מרפרוף ברשת, רק בתקווה שמי שלא מכיר את עולם התוכן הזה,
+ המאמר כן ייתן קצת פתח לעולם מדהים זה.
+
+נסיים באיור שלא יועד להיות קומי
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/earth_projections.jpg"  alt="Cool earth projection"/>
+
+[ק-רדיט](https://www.reddit.com/r/coolguides/comments/bsjr8f/this_is_pretty_cool_guide_of_how_distorting_map/) (בחבחבח...)
 
 ---
 
