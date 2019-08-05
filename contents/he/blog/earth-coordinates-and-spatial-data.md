@@ -11,11 +11,18 @@ description: |
 
 ## רקע
 
-המאמר מקוצר מאוד ואינו מתיימר להקיף הכל, אך מנסיוני כמפתח ללא רקע אקדמי, המידע במאמר יכול מאוד להוסיף למי שנצרך להבין את העקרונות הבסיסיים ביותר של העולם הזה למטרת עבודה עם מפות ומערכות GIS כמפתח תכנה.
+המאמר מקוצר מאוד ואינו מתיימר להקיף הכל,
+ונכתב מנסיוני כמפתח ללא רקע אקדמי.
+
+ניסיתי כמובן לעשות את המיטב,
+אך בהחלט ייתכן וחסר מידע ו\או מידע לא מספיק מדויק. 
+
+אשמח מאוד להארות הערות ותיקונים במייל \ טוויטר או בכל דרך אחרת 😀.
+
+המידע במאמר יכול לדעתי להוסיף למי שנצרך להבין את העקרונות הבסיסיים ביותר של העולם הזה למטרת עבודה עם מפות ומערכות GIS כמפתח תכנה.
 
 וגם אם אתם לא מפתחים אבל תמיד תהיתם מה הם המספרים המוזרים ב-URL של מיקום בגוגל Maps מקומכם איתנו.
 
-אשמח מאוד להארות והערות ותיקונים במייל או בכל דרך אחרת 😀.
 
 ## מערכות קואורדינטות ויישור קו כללי
 
@@ -32,7 +39,7 @@ description: |
 בכדי שניתן  יהיה לתאר מיקום במערכת צירים כלשהי יש צורך לסכם מראש מהי הצורה המתמטית שעליה נעבוד שתהיה הכי קרובה לצורתו האמיתית של כדוה"א, 
 ההחלטה הזו היא הדאטום שלנו, ולכן אין זה משנה איזו מערכת צירים/קואורדינטות נשתמש תמיד נצטרך לסכם מראש מהו הדאטום שעמו אנו עובדים.
 
-קיימים דאטומים רבים, ככהנפוצים שבהם הם:
+קיימים דאטומים רבים, כשהנפוצים שבהם:
 
 #### `ED50` Europe datum
  דאטום שנוצר ב... 1950 כחלק מלקחי מלחמת העולם השנייה,
@@ -44,7 +51,7 @@ description: |
 
 ###  Geocentric Cartesian
 #### הרעיון
-ל"הניח" את כדוה"א בתורך ריבוע וירטואלי, וכל מיקום בתוכו יהיה בעזרת צירי X,Y,Z כמו בל מלבן עם גובה, כשראשית מערכת הצירים במרכז כדוה"א.
+ל"הניח" את כדוה"א בתוך ריבוע וירטואלי, וכל מיקום בתוכו יהיה בעזרת צירי X,Y,Z כמו בל מלבן עם גובה, כשראשית מערכת הצירים במרכז כדוה"א.
 
 איור מערכת הצירים על כדור הארץ: 
 
@@ -68,7 +75,7 @@ description: |
 * המיקומים מדויקים. (ללא עיגול לטובה).
 * ניתן לתאר בקלות מיקום בחלל החיצון.
 #### חסרונות
- קשה להבנה ותיאור מיקום לעין והמוח האנושי. (לדוגמה צירי ה-X,Y גם משתנים בתנועה צפונה על פני הים).
+* קשה להבנה ותיאור מיקום לעין והמוח האנושי. (לדוגמה צירי ה-X,Y גם משתנים בתנועה צפונה על פני הים).
 ### Geodetic polar
 #### הרעיון
 חלוקת כדוה"א לקווי רוחב `Latitude` סיבוביים, וקווי אורך `Longitude` מקוטב לקוטב, 
@@ -157,7 +164,7 @@ description: |
 * מעוות את המצאיות בצורה משתמעותית.
 * עבודה לא נוחה במעבר בין אזורים.
 
-### Range vector
+## Range vector (יחס בין נקודות)
 
 #### Distance (מרחק)
 המרחק בין שני נקודות במרחב.
@@ -171,8 +178,14 @@ description: |
 
 (בתלת ממדי גם מתייחסים לזווית הדו ממדית)
 
-### Orientation (נטייה)
-חשוב להדגיש שנתון זה *שונה* מכיוון התנועה והכיוון במרחב
+איור להדגמת ההבדל בין זוית ה-`Elevation` לזווית ה-`Azimuth`:
+<image-responsive class="center" imageURL="blog/earth-coordinates/azimuth_elevation.gif"  alt="Azimuth vs Elevation angle"/>
+
+[קרדיט](http://www.ece.northwestern.edu/local-apps/matlabhelp/techdoc/visualize/chview3.html)
+
+
+## Orientation (נטייה)
+חשוב להדגיש שנתון זה *שונה* מכיוון התנועה והכיוון במרחב.
 
 למשל מטוס נוחת כשהנטייה שלו כלפי מעלה והכיוון שלו מן הסתם כלפי מטה.
 
@@ -194,31 +207,31 @@ description: |
 
 [קרדיט](https://commons.wikimedia.org/wiki/File:Aileron_roll.gif)
 
-### Velocity
+## Velocity (תנועה)
 
-#### מהירות בצירים ; כיוון 
+### תיאור תנועה באמצעות מהירות + כיוון 
 
-##### Speed
+##### Speed (מהירות)
 מהירות מוחלטת בכל הצירים בערכי מרחק/זמן.
 
-##### Course 
+##### Course (כיוון)
 כיוון תנועת היישות במרחב האופקי (דו ממדי) ביחס למערכת צירים נתונה, בערכי זווית.
 
-##### Elevation
+##### Elevation (הגבהה)
 כיוון ההגבהה שך היישות במרחב (תלת ממדי) ביחס למערכת צירים נתונה, בערכי זווית.
 
-#### תנועה בכל ציר בנפרד 
-ידוע בשמו Velocity vector
-מכיל יחידת מריק זמן עבור כל ציר בנפרד.
+### תיאור תנועה באמצעות המהירות בכל ציר
+ידוע בשמו `Velocity vector`
+מתאר יחידת מרחק \ זמן עבור כל ציר בנפרד.
 
-### סיכום
+## סיכום
 חשוב לציין כי התוכן במאמר הוא קצה קצהו של עולם מופלא
 (ומבולגן?) 
 הכולל המון מתמטיקה וידע אנושי שנצבר במשך שנים ולא באמת ניתן ללמוד אותו 
 מרפרוף ברשת, רק בתקווה שמי שלא מכיר את עולם התוכן הזה,
  המאמר כן ייתן קצת פתח לעולם מדהים זה.
 
-נסיים באיור שלא יועד להיות קומי
+ונסיים באיור שלא יועד להיות קומי
 
 <image-responsive class="center" imageURL="blog/earth-coordinates/earth_projections.jpg"  alt="Cool earth projection"/>
 
