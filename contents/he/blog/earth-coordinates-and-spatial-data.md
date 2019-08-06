@@ -5,7 +5,7 @@ year: 8 באוגוסט 2019
 color: '#8e7964'
 id: 'earth-coordinates'
 description: |
-   איפורמציה קלה, על קצה המזלג, על עולם קואורדינטות כדור-הארץ ותיאור מיקומים ויחס בין מיקומים
+   אינפורמציה קלה, על קצה המזלג, על עולם קואורדינטות כדור-הארץ ותיאור מיקומים ויחס בין מיקומים
    מנקודת מבט של מפתח למערכות GIS. 
 ---
 
@@ -17,20 +17,20 @@ description: |
 ניסיתי כמובן לעשות את המיטב,
 אך בהחלט ייתכן וחסר מידע ו\או מידע לא מספיק מדויק. 
 
-אשמח מאוד להארות הערות ותיקונים במייל \ טוויטר או בכל דרך אחרת 😀.
+אשמח מאוד להארות הערות ותיקונים במייל/טוויטר או בכל דרך אחרת 😀.
 
 המידע במאמר יכול לדעתי להוסיף למי שנצרך להבין את העקרונות הבסיסיים ביותר של העולם הזה למטרת עבודה עם מפות ומערכות GIS כמפתח תכנה.
 
-וגם אם אתם לא מפתחים אבל תמיד תהיתם מה הם המספרים המוזרים ב-URL של מיקום בגוגל Maps מקומכם איתנו.
+וגם אם אתם לא מפתחים אבל תמיד תהיתם מה הם המספרים המוזרים ב-URL של מיקום בגוגל Maps מקומכם אתנו.
 
 
 ## מערכות קואורדינטות ויישור קו כללי
 
 מערכת קרטזית הינה מערכת המבוססת צירי X,Y,Z 
 [במרחב האוקלידי](https://he.wikipedia.org/wiki/%D7%9E%D7%A8%D7%97%D7%91_%D7%90%D7%95%D7%A7%D7%9C%D7%99%D7%93%D7%99) 
-לתיאור מרחק הנקודה הנלונה מנקודת האפס במערכת הצירים, מתאים בד"כ למרחב מלבני.
+לתיאור מרחק הנקודה הנתונה מנקודת האפס במערכת הצירים, מתאים בד"כ למרחב מלבני.
 
-מערכת פולארית (קוטבית) הינה מערכת קואורדינטות בה מיקום מיוצג בעזרת הזוית בכל ציר (ציר רוחב/גובה) מנקודת ה-0 במערכת הצירים, מתאים בד"כ למרחב כדורי.
+מערכת פולארית (קוטבית) הינה מערכת קואורדינטות בה מיקום מיוצג בעזרת הזווית בכל ציר (ציר רוחב/גובה) מנקודת ה-0 במערכת הצירים, מתאים בד"כ למרחב כדורי.
 
 ### Datum (נתון)
 
@@ -38,8 +38,8 @@ description: |
 ([ויקיפדיה](https://he.wikipedia.org/wiki/דאטום))
 
 
-ובעברית: בגלל שצורת כדור-הארץ איננה גוף מתמטי פשוט (כדור גליל חרוט וכדו') , 
-בכדי שניתן  יהיה לתאר מיקום במערכת צירים כלשהי יש צורך לסכם מראש מהי הצורה המתמטית שעליה נעבוד שתהיה הכי קרובה לצורתו האמיתית של כדוה"א, 
+ובעברית: בגלל שצורת כדור-הארץ איננה גוף מתמטי פשוט (כדור, גליל, חרוט וכדו') , 
+בכדי שניתן יהיה לתאר מיקום במערכת צירים כלשהי יש צורך לסכם מראש מהי הצורה המתמטית שעליה נעבוד שתהיה הכי קרובה לצורתו האמיתית של כדוה"א, 
 ההחלטה הזו היא הדאטום שלנו, ולכן אין זה משנה איזו מערכת צירים/קואורדינטות נשתמש תמיד נצטרך לסכם מראש מהו הדאטום שעמו אנו עובדים.
 
 קיימים דאטומים רבים, כשהנפוצים שבהם:
@@ -48,17 +48,17 @@ description: |
  דאטום שנוצר ב... 1950 כחלק מלקחי מלחמת העולם השנייה,
  שהיו קשיים בתכנון מבצעים בעקבות שינויי דאטומים בין בעלות הברית.
 #### `WGS84` World geographic system
-סטנדרט עולמי משנת 1984 משמש ב-GPS וברוב המערכות העולמיות.
+סטנדרט עולמי משנת 1984, משמש ב-GPS וברוב המערכות העולמיות.
 
 ## מערכות קואורדינטות בכדור הארץ
 
-###  Geocentric Cartesian
+### Geocentric Cartesian
 #### הרעיון
-ל"הניח" את כדוה"א בתוך ריבוע וירטואלי, וכל מיקום בתוכו יהיה בעזרת צירי X,Y,Z כמו בל מלבן עם גובה, כשראשית מערכת הצירים במרכז כדוה"א.
+ל"הניח" את כדוה"א בתוך ריבוע וירטואלי, וכל מיקום בתוכו יהיה בעזרת צירי X,Y,Z כמו כל מלבן עם גובה, כשראשית מערכת הצירים במרכז כדוה"א.
 
 איור מערכת הצירים על כדור הארץ: 
 
-<image-responsive class="center" imageURL="blog/earth-coordinates/geocentriccoordinatesystem.png"  alt="Geocentric cartesian coordinates system"/>
+<image-responsive class="center" imageURL="blog/earth-coordinates/geocentriccoordinatesystem.png" alt="Geocentric cartesian coordinates system"/>
 
 (קרדיט [mak.com](https://ftp.mak.com/out/classdocs/vrlink5.2.1/hla1516e/vrl_coordinate_conversions.html))
 
@@ -71,14 +71,14 @@ description: |
 - Z `3436747.86996515`
 
 מייצג את המיקום של מפרץ חיפה בגובה פני הים, ישראל.
-(המרחקים\ערכים הינם במטרים)
+(המרחקים/ערכים הינם במטרים)
 
 #### יתרונות
-* קל מאוד לחשב מרחקים (מי לא שמע על [פיתגורס](https://he.wikipedia.org/wiki/%D7%9E%D7%A9%D7%A4%D7%98_%D7%A4%D7%99%D7%AA%D7%92%D7%95%D7%A8%D7%A1#%D7%9E%D7%A8%D7%97%D7%A7_%D7%91%D7%9E%D7%A8%D7%97%D7%91_%D7%94%D7%90%D7%95%D7%A7%D7%9C%D7%99%D7%93%D7%99)) ותנועה. (ללא התחשבות בכדוריות פני כדוה"א, כמובן).
-* המיקומים מדויקים. (ללא עיגול לטובה).
+* קל מאוד לחשב מרחקים (מי לא שמע על [פיתגורס](https://he.wikipedia.org/wiki/משפט_פיתגורס#מרחק_במרחב_האוקלידי)) ותנועה. (ללא התחשבות בכדוריות פני כדוה"א, כמובן).
+* המיקומים מדויקים (ללא עיגול לטובה).
 * ניתן לתאר בקלות מיקום בחלל החיצון.
 #### חסרונות
-* קשה להבנה ותיאור מיקום לעין והמוח האנושי. (לדוגמה צירי ה-X,Y גם משתנים בתנועה צפונה על פני הים).
+* קשה להבנה ותיאור מיקום לעין והמוח האנושי (לדוגמה צירי ה-X,Y גם משתנים בתנועה צפונה על פני הים).
 ### Geodetic polar
 #### הרעיון
 חלוקת כדוה"א לקווי רוחב `Latitude` סיבוביים, וקווי אורך `Longitude` מקוטב לקוטב, 
@@ -90,8 +90,7 @@ description: |
  
 וגובה `Altitude` הוא לפי המרחק מפני הים.
  
-הערכים הזוויתיים של קווי הרוחב/גובה הם לפי הזווית מנקודת ה-0 ולכן הם בד"כ במעלות או רדיאנים
-בבסיס עשרוני.
+הערכים הזוויתיים של קווי הרוחב/גובה הם לפי הזווית מנקודת ה-0 ולכן הם בד"כ במעלות או רדיאנים בבסיס עשרוני.
 
 אך ניתן ומקובל לתאר את המעלות גם בעזרת DMS (Degrees, Minutes, Seconds) שזה תיאור שברי המעלות בבסיס 60.
 
@@ -127,9 +126,9 @@ description: |
 המערכת כמו שלא קשה להבין היא קוטבית.
 
 #### יתרונות
-* קל להתמצא במרחקים ואיםה נמצאים ביחס ל.. בני אדם.
-* המיקומים מדוייקים ללא עיגול לטובה.
-* רוב מוחלט של המפות ומערכות הGIS משתמשות במערכת זו.
+* קל להתמצא במרחקים ואיפה נמצאים ביחס ל.. בני אדם.
+* המיקומים מדויקים ללא עיגול לטובה.
+* רוב מוחלט של המפות ומערכות ה-GIS משתמשות במערכת זו.
 #### חסרונות
 * קשה יחסית לחישוב מרחקים ויחס (הפרש מרחק זווית תלוי בהיקף הכדור בגובה הנתון)
 
@@ -139,7 +138,7 @@ description: |
 
 וכך כל נ.צ. (=נקודת ציון, נקודה במפה) כוללת x,y ואיזור/פלח/רצועה או איך שקוראים לזה.
 
-בנוסף, מאחר ורוחב הרצועה שונה בהתאם למרחק מקו המשווה, גם הרצועה מחולקת לגבהים באותיות מ-C עד X (לא חייבים נתון זה, מאחר וניתן להסיק אותו מערך ציר ה-y.
+בנוסף, מאחר ורוחב הרצועה שונה בהתאם למרחק מקו המשווה, גם הרצועה מחולקת לגבהים באותיות מ-C עד X (לא חייבים נתון זה, מאחר וניתן להסיק אותו מערך ציר ה-y).
 מאחר והקטבים מתעוותים לחלוטין ישנה מערכת משלימה שנקראת UPS.
 
 איור חלוקת פני כדור הארץ לפלחים:
@@ -161,10 +160,10 @@ description: |
 
 #### יתרונות
 * קל מאוד לחישוב וניתוח (כל עוד נמצאים באותו הפלח)
-* קל מאוד להבנה של מרחקים ומחס לבני אדם.
-* מתאים לניהול איזור מצומצם.
+* קל מאוד להבנה של מרחקים ויחס לבני אדם.
+* מתאים לניהול אזור מצומצם.
 #### חסרונות
-* מעוות את המצאיות בצורה משתמעותית.
+* מעוות את המציאות בצורה משמעותית.
 * עבודה לא נוחה במעבר בין אזורים.
 
 ## Range vector (יחס בין נקודות)
@@ -176,12 +175,12 @@ description: |
 זווית ההגבהה בין שני נקודות במרחב תלת ממדי.
 
 #### Azimuth (אָזִימוּט)
-זוויץ בציר האופקי (בדו ממדי) 
+זווית בציר האופקי (בדו ממדי) 
 בין שני נקודות במרחב הדו ממדי 
 
 (בתלת ממדי גם מתייחסים לזווית הדו ממדית)
 
-איור להדגמת ההבדל בין זוית ה-`Elevation` לזווית ה-`Azimuth`:
+איור להדגמת ההבדל בין זווית ה-`Elevation` לזווית ה-`Azimuth`:
 <image-responsive class="center" imageURL="blog/earth-coordinates/azimuth_elevation.gif"  alt="Azimuth vs Elevation angle"/>
 
 [קרדיט](http://www.ece.northwestern.edu/local-apps/matlabhelp/techdoc/visualize/chview3.html)
@@ -218,14 +217,14 @@ description: |
 מהירות מוחלטת בכל הצירים בערכי מרחק/זמן.
 
 ##### Course (כיוון)
-כיוון תנועת היישות במרחב האופקי (דו ממדי) ביחס למערכת צירים נתונה, בערכי זווית.
+כיוון תנועת הישות במרחב האופקי (דו ממדי) ביחס למערכת צירים נתונה, בערכי זווית.
 
 ##### Elevation (הגבהה)
-כיוון ההגבהה שך היישות במרחב (תלת ממדי) ביחס למערכת צירים נתונה, בערכי זווית.
+כיוון ההגבהה של הישות במרחב (תלת ממדי) ביחס למערכת צירים נתונה, בערכי זווית.
 
 ### תיאור תנועה באמצעות המהירות בכל ציר
 ידוע בשמו `Velocity vector`
-מתאר יחידת מרחק \ זמן עבור כל ציר בנפרד.
+מתאר יחידת מרחק / זמן עבור כל ציר בנפרד.
 
 ## סיכום
 חשוב לציין כי התוכן במאמר הוא קצה קצהו של עולם מופלא
