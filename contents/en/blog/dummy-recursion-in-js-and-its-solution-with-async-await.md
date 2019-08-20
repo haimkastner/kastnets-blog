@@ -5,8 +5,7 @@ year: 30 July 2019
 color: '#8e7964'
 trans: 'dummy-recursion-in-js-and-its-solution-with-async-await'
 id: 'dummy-recusion'
-description: |
-  Invoke async calls, in sync, why and how.
+description: Invoke async calls, in sync, why and how.
 ---
 
 ## Coming soon

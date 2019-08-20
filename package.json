@@ -21,7 +21,9 @@
     "analyze": "nuxt build --analyze"
   },
   "devDependencies": {
+    "@nuxtjs/feed": "^1.1.0",
     "frontmatter-markdown-loader": "^1.6.0",
+    "fs-extra": "^8.1.0",
     "highlight.js": "^9.15.6",
     "node-sass": "^4.11.0",
     "responsive-loader": "^1.2.0",
