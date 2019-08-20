@@ -1,5 +1,6 @@
 const builtAt = new Date().toISOString()
 const path = require('path')
+const fse = require('fs-extra')
 const { I18N } = require('./locales/i18n-nuxt-config')
 import blogsEn from './contents/en/blogsEn.js'
 import blogsHe from './contents/he/blogsHe.js'
@@ -77,31 +78,125 @@ module.exports = {
           }
         }
       }, {
-        test: /\.(jpe?g|png)$/i,
-        loader: 'responsive-loader',
-        options: {
-          placeholder: true,
-          quality: 60,
-          size: 1400,
-          adapter: require('responsive-loader/sharp')
-        }
-      }, {
-        test: /\.(gif|svg)$/,
-        loader: 'url-loader',
-        query: {
-          limit: 1000,
-          name: 'img/[name].[hash:7].[ext]'
-        }
-      });
+          test: /\.(jpe?g|png)$/i,
+          loader: 'responsive-loader',
+          options: {
+            placeholder: true,
+            quality: 60,
+            size: 1400,
+            adapter: require('responsive-loader/sharp')
+          }
+        }, {
+          test: /\.(gif|svg)$/,
+          loader: 'url-loader',
+          query: {
+            limit: 1000,
+            name: 'img/[name].[hash:7].[ext]'
+          }
+        });
     }
   },
   plugins: ['~/plugins/lazyload', '~/plugins/globalComponents', { src: '~plugins/ga.js', ssr: false }],
-  modules: [  
+  modules: [
     '@nuxtjs/style-resources',
     ['nuxt-i18n', I18N],
-    'nuxt-webfontloader'
+    'nuxt-webfontloader',
+    '@nuxtjs/feed'
   ],
-
+  feed: [
+    {
+      path: '/feed.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: "בלוג מחשבות על קידוד ופיתוח",
+          description: "בלוג מחשבות על קידוד ופיתוח, התוכן באחריות קורא המחשבות",
+          id: "https://blog.castnet.club/",
+          link: "https://blog.castnet.club/",
+          language: "he", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
+          image: "https://blog.castnet.club/favicons/android-chrome-192x192.png",
+          favicon: "https://blog.castnet.club/favicons/favicon.ico",
+          copyright: `All rights reserved ${new Date().getFullYear()}, Haim Kastner`,
+          // generator: "awesome", // optional, default = 'Feed for Node.js'
+          author: {
+            name: "Haim Kastner",
+            email: "haim.kastner@gmail.com",
+            link: "https://twitter.com/hkastnet"
+          }
+        }
+      
+        blogsHe.forEach(article => {
+          const articalRawContent = fse.readFileSync(`./contents/he/blog/${article}.md`, "utf8");
+          const articalHeaders = articalRawContent.split('---')[1].split(/\r?\n/);
+          
+          let title = article;
+          let description = article;
+          for (const header of articalHeaders) {
+            if(header.indexOf('title') === 0){
+              title = header.split(':')[1];
+            }
+            if(header.indexOf('description') === 0){
+              description = header.split(':')[1];
+            }
+          }
+          
+          feed.addItem({
+            title,
+            link: `https://blog.castnet.club/blog/${article}`,
+            description,
+          })
+        })
+      
+        feed.addCategory('software development')
+      },
+      type: 'rss2', // Can be: rss2, atom1, json1
+    },
+    {
+      path: '/en/feed.xml', // The route to your feed.
+      async create(feed) {
+        feed.options = {
+          title: "Coding and Development Thoughts Blog",
+          description: "Coding and Development Thoughts Blog, The Content is on the responsibility of the mind reader",
+          id: "https://blog.castnet.club/en",
+          link: "https://blog.castnet.club/en",
+          language: "en", // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
+          image: "https://blog.castnet.club/favicons/android-chrome-192x192.png",
+          favicon: "https://blog.castnet.club/favicons/favicon.ico",
+          copyright: `All rights reserved ${new Date().getFullYear()}, Haim Kastner`,
+          // generator: "awesome", // optional, default = 'Feed for Node.js'
+          author: {
+            name: "Haim Kastner",
+            email: "haim.kastner@gmail.com",
+            link: "https://twitter.com/hkastnet"
+          }
+        }
+      
+        blogsEn.forEach(article => {
+          const articalRawContent = fse.readFileSync(`./contents/en/blog/${article}.md`, "utf8");
+          const articalHeaders = articalRawContent.split('---')[1].split(/\r?\n/);
+          
+          let title = article;
+          let description = article;
+          for (const header of articalHeaders) {
+            if(header.indexOf('title') === 0){
+              title = header.split(':')[1];
+            }
+            if(header.indexOf('description') === 0){
+              description = header.split(':')[1];
+            }
+          }
+          
+          feed.addItem({
+            title,
+            link: `https://blog.castnet.club/en/blog/${article}`,
+            description,
+          })
+        })
+      
+        feed.addCategory('software development')
+      },
+      type: 'rss2', // Can be: rss2, atom1, json1
+    }
+  ],
   styleResources: {
     scss: [
       '@/assets/css/utilities/_variables.scss',
@@ -122,7 +217,7 @@ module.exports = {
     routes: [
       '/en', '404'
     ]
-    .concat(blogsHe.map(w => `/blog/${w}`))
-    .concat(blogsEn.map(w => `en/blog/${w}`))
+      .concat(blogsHe.map(w => `/blog/${w}`))
+      .concat(blogsEn.map(w => `en/blog/${w}`))
   }
 }
