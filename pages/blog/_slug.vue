@@ -21,6 +21,12 @@
           </div>
           <div class="elevate-cover__left">
             <span class="blogSelected-year">{{ year }}</span>
+            <h6 class="elevate-cover__description">
+              <a
+                target="blank"
+                :href="`https://github.com/haimkastner/kastnets-blog/tree/writing/contents/${$i18n.locale}/blog/${name}.md`"
+              >Edit on GitHub</a>
+            </h6>
 
             <nuxt-link
               v-if="trans && trans !== 'soon'"
