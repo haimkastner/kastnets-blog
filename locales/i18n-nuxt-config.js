@@ -1,6 +1,6 @@
 const I18N = {
   useCookie: false,
-  alwaysRedirect: true,
+  alwaysRedirect: false,
   locales: [
     {
       code: 'he',
