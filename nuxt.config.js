@@ -105,7 +105,7 @@ module.exports = {
   ],
   feed: [
     {
-      path: '/feed.xml', // The route to your feed.
+      path: '/feed', // The route to your feed.
       async create(feed) {
         feed.options = {
           title: "בלוג מחשבות על קידוד ופיתוח",
@@ -151,7 +151,7 @@ module.exports = {
       type: 'rss2', // Can be: rss2, atom1, json1
     },
     {
-      path: '/en/feed.xml', // The route to your feed.
+      path: '/en/feed', // The route to your feed.
       async create(feed) {
         feed.options = {
           title: "Coding and Development Thoughts Blog",
