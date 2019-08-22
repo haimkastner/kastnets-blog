@@ -1,6 +1,12 @@
 const I18N = {
-  useCookie: false,
-  alwaysRedirect: false,
+  detectBrowserLanguage: {
+    // If enabled, a cookie is set once a user has been redirected to his
+    // preferred language to prevent subsequent redirections
+    // Set to false to redirect every time
+    useCookie: false,
+    // Set to always redirect to value stored in the cookie, not just once
+    alwaysRedirect: false,
+  },
   locales: [
     {
       code: 'he',
