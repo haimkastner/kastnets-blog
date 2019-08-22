@@ -3,9 +3,13 @@ const I18N = {
     // If enabled, a cookie is set once a user has been redirected to his
     // preferred language to prevent subsequent redirections
     // Set to false to redirect every time
-    useCookie: false,
+    useCookie: true,
+    // Cookie name
+    cookieKey: 'i18n_redirected',
     // Set to always redirect to value stored in the cookie, not just once
     alwaysRedirect: false,
+    // If no locale for the browsers locale is a match, use this one as a fallback
+    fallbackLocale: 'he-IL'
   },
   locales: [
     {
