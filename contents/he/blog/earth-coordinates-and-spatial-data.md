@@ -10,20 +10,35 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 ## רקע
 
 המאמר מקוצר מאוד. הוא אינו מתיימר להקיף הכל ונכתב מנסיוני כמפתח ללא רקע אקדמי.
-אשמח מאוד להארות, הערות ותיקונים במייל/טוויטר או בכל דרך אחרת 😀.
+אשמח מאוד להארות, הערות ותיקונים במייל, טוויטר, PR ב-GitHub או בכל דרך אחרת 😀.
 
 המידע במאמר יכול לדעתי להוסיף למי שצריך להבין את העקרונות הבסיסיים של עולם המושגים של מפות ומערכות GIS כמפתח תכנה.
 
-גם אם אתם לא מפתחים אבל תמיד תהיתם מה הם המספרים המוזרים ב-URL של מיקום בגוגל Maps, מקומכם איתנו.
+כמובן, גם אם אתם לא מפתחים אבל תמיד תהיתם מה הם המספרים המוזרים ב-URL של מיקום בגוגל Maps, מקומכם איתנו.
 ## מערכות קואורדינטות וישור קו כללי
-* מערכת קרטזית - הינה מערכת המבוססת על צירי X,Y,Z 
+* [מערכת קרטזית](https://he.wikipedia.org/wiki/%D7%9E%D7%A2%D7%A8%D7%9B%D7%AA_%D7%A6%D7%99%D7%A8%D7%99%D7%9D_%D7%A7%D7%A8%D7%98%D7%96%D7%99%D7%AA) - 
+הינה מערכת המבוססת על צירי X,Y,Z 
 [במרחב האוקלידי](https://he.wikipedia.org/wiki/%D7%9E%D7%A8%D7%97%D7%91_%D7%90%D7%95%D7%A7%D7%9C%D7%99%D7%93%D7%99) 
 לתיאור מרחק נקודה נתונה מראשית הצירים. שיטה זו מתאימה בדר"כ למרחב מלבני.
 
-* מערכת פולארית (קוטבית) - הינה מערכת קואורדינטות בה מיקום מיוצג בעזרת הזווית בכל ציר (ציר רוחב/גובה) מנקודת ה-0 במערכת הצירים, מתאים בד"כ למרחב כדורי.
+<image-responsive class="center" imageURL="blog/earth-coordinates/cartesian-2d-map.png" alt="Cartesian 2D map"/>
+
+(קרדיט [Wikipedia](https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%91%D7%A5:Cartesiancoordinates2D_he.svg))
+
+
+* [מערכת פולארית (קוטבית)](https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%90%D7%95%D7%A8%D7%93%D7%99%D7%A0%D7%98%D7%95%D7%AA_%D7%9B%D7%93%D7%95%D7%A8%D7%99%D7%95%D7%AA) - 
+הינה מערכת קואורדינטות מבוססת הזוית מראשית מערכת הצירים
+ בה מיקום מיוצג בעזרת הזווית בכל ציר (ציר רוחב/גובה) מנקודת ה-0 במערכת הצירים, מתאים בד"כ למרחב כדורי.
+ 
+
+<image-responsive class="center" imageURL="blog/earth-coordinates/spherical_coordinate_system.jpg" alt="Spherical coordinate system"/>
+
+(קרדיט [Wikipedia](https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%91%D7%A5:Spherical_coordinate_system.jpg))
+ 
 
 ### Datum (מבנה נתונים)
 דאטום הוא אוסף של נקודות המגדירות מערכת יחוס קבועה (כלומר מגדירות גאואיד - חתך של פני כדור הארץ). דאטום מאפשר לתאר מקום על פני כדור הארץ ([ויקיפדיה](https://he.wikipedia.org/wiki/דאטום))
+
 ובעברית: בגלל שצורת כדור-הארץ איננה גוף מתמטי פשוט (כדור, גליל, חרוט וכדו') , 
 כדי שיהיה אפשר לתאר מיקום במערכת צירים כלשהי, יש צורך לסכם מראש מהי הצורה המתמטית שעליה נעבוד, שתהיה הכי קרובה לצורתו האמיתית של כדוה"א. 
 ההחלטה הזו היא הדאטום שלנו, ולכן אין זה משנה באיזו מערכת צירים/קואורדינטות נשתמש, תמיד נצטרך לסכם מראש מהו הדאטום שעמו אנו עובדים.
@@ -38,9 +53,16 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 
 ### Geocentric Cartesian
 #### הרעיון
-ל"הניח" את כדוה"א בתוך ריבוע וירטואלי, וכל מיקום בתוכו יהיה בעזרת צירי X,Y,Z כמו כל מלבן עם גובה, כשראשית מערכת הצירים במרכז כדוה"א.
+מאחר ואנו מעוניינים לתאר מיקום במערכת מבוססת מרחקים (המערכת הקרטזית) וצורתו של כדוה"א ככדור, עבור החישוב 
+"נכניס" את כדוה"א בתוך ריבוע וירטואלי (ממש כמו לקחת כדור להכניס אותו לקופסא המרובעת הקטנה ביותר האפשרית), 
+ומעתה כל מיקום בתוכו יהיה בעזרת צירי X,Y,Z כמו כל מלבן עם גובה, כשראשית מערכת הצירים במרכז כדוה"א.
 
-איור מערכת הצירים על כדור הארץ: 
+איור "הכנסת" כדור הארץ למערכת הצירים:
+<image-responsive class="center" imageURL="blog/earth-coordinates/earth-with-3d-cartesian.jpeg" alt="Earth with 3d cartesian"/>
+
+(קרדיט [paul-reed.co.uk](http://paul-reed.co.uk/programming.html))
+
+איור מערכת הצירים על פני כדור הארץ: 
 
 <image-responsive class="center" imageURL="blog/earth-coordinates/geocentriccoordinatesystem.png" alt="Geocentric cartesian coordinates system"/>
 
@@ -58,16 +80,23 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 * המיקומים מדויקים (ללא עיגול לטובה).
 * ניתן לתאר בקלות מיקום בחלל החיצון.
 #### חסרונות
-* אומדן מרחקים וכיוונים בין נקודות בשיטה זו לא אינטואיטיבי למח האנושי. (לדוגמה, צירי ה-X,Y גם משתנים בתנועה צפונה על פני הים).
+* מאחר והמערכת מלבנית אבל אנו נעים על פני כדור בתוכו, אומדן מרחקים וכיוונים בין נקודות לא אינטואיטיבי למח האנושי.
+ לדוגמה, צירי ה-X,Y ו-Z משתנים בתנועה צפונה על פני הכדור (=פני הים) למרות שבתחושתנו אנו נעים על ציר ה-Y בלבד.
 ### Geodetic polar
 #### הרעיון
 נתבונן על כדור הארץ, צורתו כצורת כדור. נפרוס עליו קווים - פעם לרוחב, פעם לאורך.
 
-את קווי האורך נפרוס במרחק זויתי זה מזה כך שיהיה 11 מעלות. נפרוס אותם מהקוטב הצפוני לקוטב הדרומי, כאשר קו האורך החשוב הוא קו 0, אשר נקבע להיות קו מרידיאן. קו זה עובר בגריניץ', אנגליה.
+את קווי האורך `Longitude`נפרוס במרחק זויתי זה מזה כך שיהיה 11 מעלות. נפרוס אותם מהקוטב הצפוני לקוטב הדרומי, 
+כאשר קו האורך החשוב הוא קו 0, אשר נקבע להיות קו מרידיאן. קו זה עובר בגריניץ', אנגליה.
+
 המרחקים בין הקווים משתנים לפי המיקום על הקשת שנוצרת בגלל צורתו הכדורית של כדור הארץ.
-את קווי הרוחב נפרוס ממזרח למערב ונקיף איתם את כדור הארץ. קו המשוה הוא קו 0, ושאר הקווים רצים עד 90 מעלות צפון או 90 מעלות דרום.
+
+את קווי הרוחב `Latitude`נפרוס ממזרח למערב ונקיף איתם את כדור הארץ. קו המשווה הוא קו 0, ושאר הקווים רצים עד 90 מעלות צפון או 90 מעלות דרום.
+
 גובה `Altitude` הוא המרחק מפני הים.
-הערכים הזוויתיים של קווי הרוחב/גובה הם לפי הזווית מנקודת ה-0 ולכן הם בד"כ במעלות או רדיאנים בבסיס עשרוני, אך ניתן (ומקובל) לתאר את המעלות גם בעזרת DMS (Degrees, Minutes, Seconds) שזה תיאור שברי המעלות בבסיס 60.
+
+הערכים הזוויתיים של קווי הרוחב/גובה הם לפי הזווית מנקודת ה-0 ולכן הם בד"כ במעלות או רדיאנים בבסיס עשרוני, 
+אך ניתן (ומקובל) לתאר את המעלות גם בעזרת DMS (Degrees, Minutes, Seconds) שזה תיאור שברי המעלות בבסיס 60.
 
 איור קווי רוחב\גובה על פני כדור הארץ:
 
@@ -88,6 +117,7 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 - Latitude `32.8103889`
 - Longitude `35.0108669`
 - Altitude `0`
+
 כמובן ניתן לייצוג גם כ-DMS
 <image-responsive class="center" imageURL="blog/earth-coordinates/dms.png"  alt="dms location"/>
 
@@ -105,10 +135,11 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 
 ### UTM universal transverse Mercator
 #### הרעיון
-מערכת קרטזית המחולקת על פני כדוה"א (למעט איזור הקטבים) ל-60 רצועות והשטחתם לתמונה דו-ממדית, כל פלח/רצועה 6.5 מעלות. (6 מעלות + חפיפה).
-כך כל נ.צ. (=נקודת ציון, נקודה במפה) כוללת x,y ואיזור/פלח/רצועה או איך שקוראים לזה.
+יצירת מערכת קרטזית ממחלוקת פני כדוה"א (למעט איזור הקטבים) ל-60 רצועות והשטחתם לתמונה דו-ממדית, כל פלח/רצועה 6.5 מעלות. (6 מעלות + חפיפה).
+
+כך כל נ.צ. (=נקודת ציון, נקודה במפה) כוללת x,y,z ופלח.
+
 בנוסף, מאחר ורוחב הרצועה שונה בהתאם למרחק מקו המשווה, גם הרצועה מחולקת לגבהים באותיות מ-C עד X (לא חייבים נתון זה, מאחר וניתן להסיק אותו מערך ציר ה-y).
-מאחר והקטבים מתעוותים לחלוטין ישנה מערכת משלימה שנקראת UPS.
 
 איור חלוקת פני כדור הארץ לפלחים:
 
@@ -123,6 +154,8 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 <image-responsive class="center" imageURL="blog/earth-coordinates/africa-utm-zones.png"  alt="Full earth lan lon angels"/>
 
 [קרדיט](https://commons.wikimedia.org/wiki/File:LA2-Africa-UTM-zones.png)
+
+מאחר והקטבים מתעוותים לחלוטין ישנה מערכת משלימה שנקראת UPS.
 
 #### יתרונות
 * קל מאוד לחישוב וניתוח (כל עוד נמצאים באותו הפלח)
@@ -150,8 +183,11 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 
 
 ## Orientation (נטייה)
-אוריינטציה הינה המנח של העצם ביחס לעולם (כלומר סיבוב ביחס לעצמו בשלושת הצירים). חשוב להדגיש שנתון זה *שונה* מכיוון התנועה והכיוון במרחב.
+אוריינטציה הינה המנח של העצם ביחס לעולם (כלומר סיבוב ביחס לעצמו בשלושת הצירים).
+ 
 אוריינטציה מורכבת מוקטור של yaw, pitch, roll.
+
+חשוב להדגיש שנתון זה *שונה* מכיוון התנועה והכיוון במרחב.
 למשל מטוס נוחת כשהנטייה שלו כלפי מעלה והכיוון שלו מן הסתם כלפי מטה.
 
 #### heading \ yaw (סבסוב)
