@@ -39,21 +39,21 @@ I must say, this is the tools I used, you can buy from other sellers or similar 
 
 All the equipment cost about 10$ and the device about 11$.
 
-### Prepare
+### Software to use
 
 1. PC with Windows 10 OS.
-1. esptool flashing tool from [here](/assets/esptool.exe) or directly from the official [repo](https://github.com/espressif/esptool) at GitHub.
+1. download `esptool` flashing tool from [here](/assets/esptool.exe) or directly from the official [repo](https://github.com/espressif/esptool) at GitHub.
 1. Tasmota firmware from [here](/assets/tasmota.bin) (version 6.5.0-release-sonoff) or directly from the official [repo](https://github.com/arendst/Sonoff-Tasmota/releases) at GitHub.
 
 ## Flashing the firmware
 
 # THE FLASHING PROCESS IS DANGEROUS! BE AWARE, USING THE MANUAL IS ON YOUR OWN RISK!!!
 
-## Software settings:
+## Software settings
 
 Create a folder and copy to it the downloaded files
+`tasmota.bin` and `e sptool.exe`.
 
-`tasmota.bin` and `esptool.exe`
 Let assume the folder is `C:\flasing`
 
 Connect the USB to Serial converter to the PC.
@@ -81,9 +81,9 @@ And copy to the command line the following command:
   esptool.exe -vv -cb 115200 -cp COM6 -ca 0x00000 -bz 1M -bm dout -cf tasmota.bin
 ```
 
-Note that the `COM6` should replace by your device port from the early keep:
+Note that the `COM6` should replace by your device port from the early keep.
 
-*Do not press Enter yet, keep command ready to use*
+*Do not press 'Enter' yet, keep command ready to use*
 
 Disconnect USB to Serial converter from the PC.
 
@@ -101,9 +101,9 @@ And the glossy lid that is not attached with screws.
 
 <image-responsive class="center" imageURL="blog/flashing-tuya-ir/device-equator.jpg"  alt="Device equator"/>
 
-Remove the cover gently, you can be used with a screwdriver, but open it slowly and carefully to not break it.
+Remove the cover gently, you can use a screwdriver but open it slowly and carefully to not break it.
 
-At the end the device shuld look like:
+At the end the device should look like:
 
 <image-responsive class="center" imageURL="blog/flashing-tuya-ir/device-opend.jpg"  alt="Device opend"/>
 
