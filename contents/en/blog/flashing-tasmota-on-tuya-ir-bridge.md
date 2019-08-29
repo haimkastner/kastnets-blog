@@ -58,7 +58,7 @@ Let assume the folder is `C:\flasing`
 
 Connect the USB to Serial converter to the PC.
 wait until drivers autometly installed by Windows.
-(if its not work automatic go to [here](http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41) or [here](https://answers.microsoft.com/en-us/windows/forum/windows_10-hardware/prolific-usb-to-serial-comm-port-windows-10/0a4f8e48-7135-4434-9d10-349c9ce87fcf?auth=1))
+(if its not work automatic go [here](http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41) or [here](https://answers.microsoft.com/en-us/windows/forum/windows_10-hardware/prolific-usb-to-serial-comm-port-windows-10/0a4f8e48-7135-4434-9d10-349c9ce87fcf?auth=1))
 
 In Windows search look for `device manager`
 and select the first results.
@@ -81,7 +81,7 @@ And copy to the command line the following command:
   esptool.exe -vv -cb 115200 -cp COM6 -ca 0x00000 -bz 1M -bm dout -cf tasmota.bin
 ```
 
-Note that the `COM6` should replace by your device port from the early keep.
+Note that the `COM6` should be replaced by your device port from earlier.
 
 *Do not press 'Enter' yet, keep command ready to use*
 
