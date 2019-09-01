@@ -17,7 +17,11 @@
               <span>Twitter</span>
             </a>
             |
-            <a target="_blank" href="/en/feed" class="ani">
+            <a
+              target="_blank"
+              :href="`${local === 'he' ? '' : `/${local}`}/feed`"
+              class="ani"
+            >
               <span>RSS</span>
             </a>
             |
@@ -45,6 +49,9 @@ export default {
   computed: {
     year() {
       return new Date().getFullYear();
+    },
+    local() {
+      return this.$i18n.locale;
     }
   }
 };
