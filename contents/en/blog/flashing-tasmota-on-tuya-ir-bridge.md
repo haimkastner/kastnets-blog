@@ -47,7 +47,7 @@ All the equipment cost about 10$ and the device about 11$.
 
 ## Flashing the firmware
 
-# THE FLASHING PROCESS IS DANGEROUS! BE AWARE, USING THE MANUAL IS ON YOUR OWN RISK!!!
+# THE FLASHING PROCESS IS VERY DANGEROUS! BE AWARE, USING THE MANUAL IS ON YOUR OWN RISK!!!
 
 ## Software settings
 
@@ -56,14 +56,12 @@ Create a folder and copy to it the downloaded files
 
 Let assume the folder is `C:\flasing`
 
-Connect the USB to Serial converter to the PC.
-wait until drivers autometly installed by Windows.
+Connect the `USB to Serial` converter to the PC.
+wait until drivers automatically installed by Windows.
 (if its not work automatic go [here](http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41) or [here](https://answers.microsoft.com/en-us/windows/forum/windows_10-hardware/prolific-usb-to-serial-comm-port-windows-10/0a4f8e48-7135-4434-9d10-349c9ce87fcf?auth=1))
 
 In Windows search look for `device manager`
-and select the first results.
-
-Or press Windows Key + R and in the input insert `devmgmt.msc`.
+and select the first results, or press `Windows Key` + `R` and in the input insert `devmgmt.msc`.
 
 In the device manager look for the device serial port `COMX`.
 
@@ -75,7 +73,7 @@ Open the command line in the directory `C:\flasing`.
 
 (If you don't know-how, look [here](https://www.thewindowsclub.com/how-to-open-command-prompt-from-right-click-menu))
 
-And copy to the command line the following command:
+On the command line write the following command:
 
 ```bash
   esptool.exe -vv -cb 115200 -cp COM6 -ca 0x00000 -bz 1M -bm dout -cf tasmota.bin
@@ -83,12 +81,11 @@ And copy to the command line the following command:
 
 Note that the `COM6` should be replaced by your device port from earlier.
 
-*Do not press 'Enter' yet, keep command ready to use*
+*Do not press 'Enter' yet, keep the command ready to use for the next step*
 
-Disconnect USB to Serial converter from the PC.
+Disconnect the `USB to Serial` converter from the PC.
 
 Now move to the next step:
-
 
 ## Hardware settings
 
@@ -96,14 +93,14 @@ Now move to the next step:
 
 *First of all, unplug the device from the power, and do not connect it until flashing process finished*
 
-The device consists of two parts, the bottom to which the chip is attached with screws
-And the glossy lid that is not attached with screws.
+The device consists of two parts, the bottom to which the chip is attached with screws, 
+and the glossy lid that is not attached with screws.
 
 <image-responsive class="center" imageURL="blog/flashing-tuya-ir/device-equator.jpg"  alt="Device equator"/>
 
-Remove the cover gently, you can use a screwdriver but open it slowly and carefully to not break it.
+Remove the cover gently, you can use a screwdriver but open it slowly and carefully because it is very fragile.
 
-At the end the device should look like:
+At the end the device should look like this:
 
 <image-responsive class="center" imageURL="blog/flashing-tuya-ir/device-opend.jpg"  alt="Device opend"/>
 
@@ -113,13 +110,13 @@ We need to connect the device (while not connected to power!!!) to the PC via th
 
 The connection diagram is:
 
-* port `v3v` of device to the `v3v` of the converter.
-* port `TXD` of device to the `RXD` of the converter.
-* port `RXD` of device to the `TXD` of the converter.
-* port `GND` of device to the `GND` of the converter.
-* port `IO0` of device to the `GND` of the converter.
+* port `v3v` of the device to the `v3v` of the converter.
+* port `TXD` of the device to the `RXD` of the converter.
+* port `RXD` of the device to the `TXD` of the converter.
+* port `GND` of the device to the `GND` of the converter.
+* port `IO0` of the device to the `GND` of the converter.
 
-Like the following poctures:
+the connections need to be like shown in the following pictures:
 
 <image-responsive class="center" imageURL="blog/flashing-tuya-ir/full-wiring.jpg"  alt="Full wiring"/>
 <image-responsive class="center" imageURL="blog/flashing-tuya-ir/converter-wiring.jpg"  alt="Converter wiring"/>
@@ -129,7 +126,7 @@ Like the following poctures:
 
 ### Connect to the PC
 
-Make sure again that all wires well connected.
+Make sure again that all wires are well connected.
 
 Now the flashing is ready.
 
@@ -139,14 +136,14 @@ The command line and the converter shuld look like this:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oJWv0eCkdLA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Assuming all works properly and `flush complete` shown in the command line,
+Assuming all worked properly and `flush complete` displayed on the command line,
 remove the converter from the PC, remove the wires from the device, and return the device cover.
 
-The flashing finished!
+The flashing is finished!
 
 ## Setting the device
 
-Make sure that all wires removed, and the cover in his place, then connect device to power.
+Make sure that all wires removed, and the cover is in his place, then connect device to the power.
 
 Wait a few seconds and then should be a new network named `sonoff-xxxx` in the WiFi list on PC or smartphone.
 
@@ -168,7 +165,7 @@ Connect back to the home network, enter to the home router to get the new device
 
 Each router has a different UI but all should have somewhere a table of network devices IPs.  
 
-In my router (ASUS RT-xxxxxx) its look like: 
+In my router (ASUS RT-xxxxxx) its look like this: 
 
 <image-responsive class="center" imageURL="blog/flashing-tuya-ir/dhcp-ips.jpg"  alt="DHCP IPs"/>
 
@@ -191,7 +188,7 @@ Then press 'Save'.
 
 The device should reboot again.
 
-And that it. you finished.
+And that is it. you finished.
 
 Now you can use the device.
 
