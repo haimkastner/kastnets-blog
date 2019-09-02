@@ -166,6 +166,8 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 * מעוות את המציאות בצורה משמעותית.
 * עבודה לא נוחה במעבר בין אזורים.
 
+# נספח יישות במרחב
+
 ## Range vector (יחס בין נקודות)
 
 #### Distance (מרחק)
@@ -181,8 +183,6 @@ description: אינפורמציה קלה על קצה המזלג על עולם ק
 <image-responsive class="center" imageURL="blog/earth-coordinates/azimuth_elevation.gif"  alt="Azimuth vs Elevation angle"/>
 
 [קרדיט](http://www.ece.northwestern.edu/local-apps/matlabhelp/techdoc/visualize/chview3.html)
-
-# נספח יישות במרחב
 
 ## Orientation (נטייה)
 אוריינטציה הינה המנח של העצם ביחס לעולם (כלומר סיבוב ביחס לעצמו בשלושת הצירים).
