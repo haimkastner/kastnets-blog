@@ -1,3 +1,5 @@
+# My blog migrate to https://github.com/haimkastner/castnet-blog
+
 <p align="center">
   <a href="https://nuxtjs.org/">
   <img src="https://avatars2.githubusercontent.com/u/23360933?s=200&v=4" height="60">
